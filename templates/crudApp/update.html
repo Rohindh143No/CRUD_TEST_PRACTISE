@@ -1,0 +1,65 @@
+<style>
+    .student-table {
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      .student-table table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      .student-table th,
+      .student-table td {
+        padding: 10px;
+        border-bottom: 1px solid #e0e0e0;
+        text-align: center;
+      }
+      
+      .student-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .student-table td {
+        background-color: #fafafa;
+        color: #666;
+      }
+      
+      .student-table tr:hover {
+        background-color: #f5f5f5;
+      }
+      
+      .student-table a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+      
+      .student-table a:hover {
+        color: #00bfff;
+      }
+</style>
+
+
+{% extends 'crudApp/base.html' %}
+{% block content %}
+    <div class="student-table">
+        <h3>Update Students Details</h3>
+        <form method='POST'>
+            
+       <!--give the attribute name as you created in ith models.py-->
+       Student Roll No :<input type="text" name="Sno" value="{{student.Sno}}">
+       Student Name :<input type="text" name="Sname" value="{{student.Sname}}">
+       Student Age :<input type="text" name="Sage" value="{{student.Sage}}">
+       Student Address :<input type="text" name="Sadrs" value="{{student.Sadrs}}">
+    </div>
+    {%csrf_token%}
+   <input type='submit' value='Update'>
+</form>
+    
+{% endblock %}
